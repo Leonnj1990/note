@@ -20,8 +20,8 @@
 #####操作系统：**系统调用**
 
   * 应用程序（启动：自启动、按需启动）
-  * **[内核](#内核管理)**：kernel space
-  * **[库](#库)**：library（lib）可执行，但无执行入口
+  * **内核**：kernel space
+  * **库**：library（lib）可执行，但无执行入口
   * **shell**：接受用户命令，转换用户命令为计算机可理解的二进制形式，并将其发送给内核（按需启动）
       * GUI:**图形用户界面**（Graphical User Interface）
       * CLI：**命令行界面**（Command Line Interface）
