@@ -26,22 +26,22 @@
       * GUI:**图形用户界面**（Graphical User Interface）
       * CLI：**命令行界面**（Command Line Interface）
 #####GUN：**革奴计划**
-  * GPL:**反版权**
+   * GPL:**反版权**
 #####[内核管理](id:内核管理)
-  * 进程管理
-  * 内存管理
-  * 文件系统
-  * 驱动程序
-  * 网络接口
-  * 进程间通信 
+   * 进程管理
+   * 内存管理
+   * 文件系统
+   * 驱动程序
+   * 网络接口
+   * 进程间通信 
 #####[库](id:库)
-  * Windows：dll(Dynamic Link Library)动态链接库
-  * Linux：
+   * Windows：dll(Dynamic Link Library)动态链接库
+   * Linux：
       * so(shared object)共享对象
       * dso(Dynamic shared object)动态共享对象
 #####[命令](id:命令)
-  * 命令 选项 参数 
-    * 用户类型
+   * 命令 选项 参数 
+     * 用户类型
       	* root **#**
         * 普通用户 **$**
     * 选项：修改命令执行特性
@@ -58,8 +58,10 @@
    * 切换用户：su(switch user)
    * 文件列表：ls(list) 
    
-#####[切换用户：su](id:切换用户)
-#####[文件列表：ls](id:文件列表)
+#####[切换用户](id:切换用户)
+su switch user
+#####[文件列表](id:文件列表)
+ls list
  
   * 目录：文件，路径映射  **/**
     * Working Directory,Current Directory
