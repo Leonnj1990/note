@@ -20,3 +20,28 @@
 
 * git pull 拉取代码到本地  
 * 执行
+
+####部署到服务器
+
+* git checkout master
+* git merge dev
+* git push origin master 
+
+###后端服务层
+
+* docker-compose up -d  安装+启动
+* docker-compose ps  查看编排工具容器状态
+* docker exec -it [company.api.qixinyun.com-phpfpm] /bin/bash  执行
+* ls
+* composer install  安装composer
+* exit  退出容器
+* docker-compose stop  停止
+* php marmot.php autoCreate 自动创建文件
+* php marmot.php clearCache 清理缓存
+* smart 检测代码
+* .git/hooks/pre-commit 加钩子
+* docker ps  查看服务
+
+
+
+
