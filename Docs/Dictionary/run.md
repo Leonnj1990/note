@@ -32,8 +32,8 @@
 * docker-compose up -d  安装+启动
 * docker-compose ps  查看编排工具容器状态
 * docker exec -it [company.api.qixinyun.com-phpfpm] /bin/bash  执行
-* ls
 * composer install  安装composer
+* phpdbg -qrr ./vendor/bin/phpunit --coverage-html ./目录  生成测试报告
 * exit  退出容器
 * docker-compose stop  停止
 * php marmot.php autoCreate 自动创建文件
