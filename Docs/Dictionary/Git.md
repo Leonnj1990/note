@@ -147,37 +147,35 @@ $ git config --global alias.st status
 
 如下给出一个样板:
 
+	# 忽略所有以 .c结尾的文件
+	*.c
+	
+	# 但是 stream.c 会被git追踪
+	!stream.c
+	
+	# 只忽略当前文件夹下的TODO文件, 不包括其他文件夹下的TODO例如: subdir/TODO
+	/TODO
+	
+	# 忽略所有在build文件夹下的文件
+	build/
+	
+	# 忽略 doc/notes.txt, 但不包括多层下.txt例如: doc/server/arch.txt
+	doc/*.txt
+	
+	# 忽略所有在doc目录下的.pdf文件
+	doc/**/*.pdf
+	```
+	
+	<span id = "仓库的基础操作"></span>
+	## 仓库的基础操作
+	
+	<span id = "初始化仓库"></span>
+	### 初始化仓库
 
-```
-# 忽略所有以 .c结尾的文件
-*.c
-
-# 但是 stream.c 会被git追踪
-!stream.c
-
-# 只忽略当前文件夹下的TODO文件, 不包括其他文件夹下的TODO例如: subdir/TODO
-/TODO
-
-# 忽略所有在build文件夹下的文件
-build/
-
-# 忽略 doc/notes.txt, 但不包括多层下.txt例如: doc/server/arch.txt
-doc/*.txt
-
-# 忽略所有在doc目录下的.pdf文件
-doc/**/*.pdf
-```
-
-<span id = "仓库的基础操作"></span>
-## 仓库的基础操作
-
-<span id = "初始化仓库"></span>
-### 初始化仓库
-
-
-```
-$ git init
-```
+	
+	```
+	$ git init
+	```
 
 
 

@@ -1,0 +1,63 @@
+# composer
+
+		{
+		
+		    "require": {
+		
+		        "php-di/php-di": "^5.2",
+		
+		        "doctrine/annotations": "^1.2",
+		
+		        "doctrine/cache": "~1.4",
+		
+		        "monolog/monolog": "^1.17",
+		
+		        "nikic/fast-route": "^0.7.0",
+		
+		        "ocramius/proxy-manager": "~1.0",
+		
+		        "guzzlehttp/guzzle": "^6.1",
+		
+		        "respect/validation": "^1.0",
+		
+		        "neomerx/json-api": "^0.8.1",
+		
+		        "php-amqplib/php-amqplib": "2.6.*",
+		
+		        "chloroplast1983/marmot-common": "1.1.0"
+		
+		    },
+		
+		    "require-dev": {
+		
+		        "phpunit/phpunit": "5.2.6",
+		
+		        "phpunit/dbunit": "^2.0",
+		
+		        "squizlabs/php_codesniffer": "2.*",
+		
+		        "phploc/phploc": "*",
+		
+		        "pdepend/pdepend" : "2.2.4",
+		
+		        "sebastian/phpcpd": "*",
+		
+		        "phpmd/phpmd" : "@stable",
+		
+		        "fzaninotto/faker": "^1.6"
+		
+		    },
+		
+		    "repositories": {
+		
+		        "packagist": {
+		
+		            "type": "composer",
+		
+		            "url": "https://packagist.phpcomposer.com"
+		
+		        }
+		
+		    }
+		
+		}

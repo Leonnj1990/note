@@ -16,6 +16,7 @@
     * [文件管理](#文件管理)
     * [时间管理](#时间管理)
     * [其他](#其他)
+* [bash特性](#bash特性)
 
 ---
 
@@ -398,9 +399,9 @@
 			-u (被忽略)
 			-v, --show-nonprinting 使用 ^ 和 M- 引用，除了 LFD 和 TAB 之外
 			--help 显示此帮助信息并离开
+	* shift+pageUp/pageDown 翻页
  * **tac: 与cat相反**
- * **more: 向后翻 **
- * **less **
+ * **more: 向后翻 ** &&  **less **
  
 	 	b键: 向前翻
 	 	space: 向后翻 
@@ -424,6 +425,12 @@
 
 #####[文本处理](id:文本处理)
 * **cut**
+
+	    cut是一个选取命令，将一段数据经过分析，取出我们想要的。选取信息通常是针对“行”来进行分析的，并不是整篇信息分析的。
+
+    * 语法
+    
+			cut  [-bn] [file] 或 cut [-c] [file]  或  cut [-df] [file] 
 	* 选项
 	
 			-d: 指定字段分隔符，默认是 `空格`
@@ -442,10 +449,68 @@
 			lp
 			sync
 			shutdown
-
-			
-
+* **join**		
  
+---
+
+#####[文本处理](id:文本处理)
+* **sort**
+		
+		默认从左向右根据字符的ASCII值来判断（升序）
+	* 语法
+		
+			sort [选项] 文件
+	* 选项
+		
+			-n 按照数值排序
+			-r 降序
+			-t 字段分隔符
+			-k 以那个字段为关键字进行排序
+			-u 排序后相同的行只显示一次
+			-f 排序不区分大小写
+	* 示例
+		
+			根据数值排序，并且按照 : 分隔 以第三个字段为关键字，进行降序排列
+			[root@localhost ~]# sort -t: -k3 -n -r /etc/passwd
+			halt:x:7:0:halt:/sbin:/sbin/halt
+			shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+			sync:x:5:0:sync:/sbin:/bin/sync
+			lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+			adm:x:3:4:adm:/var/adm:/sbin/nologin
+			daemon:x:2:2:daemon:/sbin:/sbin/nologin
+			bin:x:1:1:bin:/bin:/sbin/nologin
+			root:x:0:0:root:/root:/bin/bash
+
+* **uniq**
+	
+		只有相邻行一模一样，才算重复
+	* 选项
+	
+			-c 显示文件中行重复的次数
+			-d 只显示重复的行
+
+* **wc** 文本统计 (word count)
+		 
+	* 选项
+			
+			-l 行数
+			-c 字节(bytes)数
+			-m 字符(chars)数
+			-w 单词数
+			-L 最长行的长度
+
+* **tr** 字符处理命令 翻译或删除字符
+	* 选项
+		
+			-d 删除出现在字符集中的所有字符
+	
+	* 示例
+	
+			[root@localhost ~]# tr 'a-z' 'A-Z' < /etc/passwd
+			ROOT:X:0:0:ROOT:/ROOT:/BIN/BASH
+			BIN:X:1:1:BIN:/BIN:/SBIN/NOLOGIN
+			DAEMON:X:2:2:DAEMON:/SBIN:/SBIN/NOLOGIN			  
+
 ---
 
 #####[其他](id:其他)
@@ -495,5 +560,62 @@
  
     	whatis COMMAND
 
+//tar -cvf backend-company-unitTest.tar backend-company-unitTest/
 
+---
 
+> ###[bash特性](id:bash特性)
+
+   * **pstree** 查看
+   * shell 子shell 
+   	  * GUI
+   	  * GLI 
+   * 程序
+   	  * 进程: 在每个进程看来，当前主机上只存在内核和当前进程
+   	  * 进程是程序的副本，进程是程序执行的实例
+   	  * 线程是程序执行的最小单位
+   * bash 
+   	  * 命令历史、命令补全
+   	  * 管道、重定向
+   	  * 命令别名
+   	  * 命令行编辑
+   	  * 命令行展开
+   	  * 文件名通配
+   	  * 变量
+   	  * 编程
+
+---
+
+#####[命令行编辑](id:命令行编辑)
+
+ * **光标跳转**
+ 
+      	Ctrl+a 跳到命令行首
+	  	Ctrl+e 跳到命令行为
+		Ctrl+u 删除光标至命令行首的内容
+		Ctrl+k 删除光标至命令行尾的内容
+		Ctrl+l 清屏 
+ * **history**
+ 	* 选项
+ 
+			-c 清除历史
+			-d offset [num] 删除指定位置的命令 
+			-w 保存命令历史至历史文件中 `.bash_history`
+ * 环境变量
+    * PATH 命令搜索路径
+    * HISTSIZE 命令历史缓冲区大小
+    * `echo $ 输出变量的值`
+    * 示例
+    
+ 			[root@localhost ~]# echo $HISTSIZE
+			1000
+ * 命令历史的使用技巧
+	
+		!num 执行命令历中的第num条命令
+		!-num 执行命令历史中的倒数第num条命令
+		!! 执行上一条命令
+		!string 执行命令历史中最后一个以指定字符串开头的命令
+		!$ / Esc . / Alt+.  引用前一个命令的最后一个参数
+ * 命令补全  在命令搜索路径(PATH)中查找  `Tab`
+ * 路径补全  `Tab`		
+		
