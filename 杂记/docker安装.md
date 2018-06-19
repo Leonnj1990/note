@@ -1,6 +1,6 @@
 # docker 安装
 
---
+---
 
 ## CentOS7下安装docker
 
@@ -18,7 +18,7 @@
 
 5、如需开机自动启动docker服务则输入**systemctl enable docker**
 
---
+---
 
 ## CentOS7下安装python-pip
 
