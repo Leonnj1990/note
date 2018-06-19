@@ -2,6 +2,24 @@
 
 --
 
+## CentOS7下安装docker
+
+1、建议首先输入 **yum check-update** 更新包数据库
+
+2、输入 **yum install docker** 并按回车键确定
+
+3、输入 **systemctl start docker** 启动docker服务
+
+	如果启动失败, 修改配置文件需要重启机器：
+	修改/etc/selinux/config 文件
+	将SELINUX=enforcing改为SELINUX=disabled
+	重启机器即可
+4、输入 **systemctl status docker** 查看docker状态
+
+5、如需开机自动启动docker服务则输入**systemctl enable docker**
+
+--
+
 ## CentOS7下安装python-pip
 
 ### 在使用Docker的时候，有一个工具叫做  docker-compose，安装它的前提是要安装pip工具.
