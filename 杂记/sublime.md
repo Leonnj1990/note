@@ -1,10 +1,10 @@
-#linux 下安装 sublimetext2 
+# linux 下安装 sublimetext2 
 
-##下载
+## 下载
 	Sublime Text 2 的下载地址是 <a href="http://www.sublimetext.com/2">http://www.sublimetext.com/2</a>，
 	如果你的 Linux 系统是64位的，那么别忘了下载64位的程序包，速度和性能都大不一样的。
 
-##解压
+## 解压
 	你可以使用 GUI 管理工具来解压，不过我更加推荐使用命令行工具。打开 Terminal < ctrl + alt + t >，首先进入存放
 	下载程序包的文件夹：（假设是用户目录下的 Downloads 文件夹）
 
@@ -15,7 +15,7 @@
 	.tar.bz2 这样后缀名的文件可以当作类似于 Windows 下的 .zip 文件；\ 是转义字符，它的作用是把文件名中的空格做字
 	符化处理，这样就不会被命令误当成是分隔符号了。
 
-##运行
+## 运行
 	进入解压缩后的文件夹，我们可以看到 Sublime Text 2 的组成文件，并且可以执行以下命令运行它：
 
 	Sublime Text 2$ ./sublime_text
@@ -53,7 +53,7 @@
 	这条命令的意思就是给可执行的 sublime_text 文件创建了一个叫做 subl 的连接（类似 Windows 下的快捷方式，只不过是运行
 	在命令行下的），并且把它保存在 /usr/bin/ 文件夹下。于是，我们就可以通过输入 subl 来运行 Sublime Text 2 了。
 
-##简化
+## 简化
 	通过上述操作，我们就安装好了 Linux 版本的 Sublime Text 2，不过相比 Windows 或 Mac OS X 而言，这还是太麻烦了。是
 	否可以创建一个图形化的快捷方式以便我们在 Ubuntu 的 Dash 或 Launch Bar 里运行它呢？
 
