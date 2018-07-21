@@ -1,1 +1,0 @@
-mysql\bin\mysql.exe -uroot -proot qichacha --default-character-set=utf8 0<C:\Users\QXY-XA-YF001\Desktop\pcore_company_registration_info.sql
