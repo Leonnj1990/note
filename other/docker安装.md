@@ -49,7 +49,7 @@ Docker-Compose是一个部署多个容器的简单但是非常必要的工具.
 安装好pip之后，就可以安装Docker-Compose了.
 
 * 1、在linunx终端执行：pip install docker-compose.
-执行完之后，输入docker-compse，报如下错误：
+执行完之后，输入docker-compose，报如下错误：
 
 	[root@localhost ~]# docker-compose  
 	Traceback (most recent call last):  

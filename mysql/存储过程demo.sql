@@ -1,66 +1,87 @@
 
---拼接的sql需要动态执行, 暂时想到的解决方案是在adapter执行两次查询, 第一次查询 存储过程, 第二次查询拼接的sql语句, 但是执行两次感觉不太好
+
+-- --------------------------------------------------------
+
+--
+-- 根据信用类型(资源目录)搜索企业
+--
+
 DROP PROCEDURE IF EXISTS enterprise_by_resource_catalog;
 
 DELIMITER //
-CREATE PROCEDURE enterprise_by_resource_catalog(in name varchar(255), in type int, in dimension int, in offset int, in size int) 
+CREATE PROCEDURE enterprise_by_resource_catalog(in name varchar(255), in type int, in dimension varchar(255), in offset int, in size int) 
 BEGIN
-  DECLARE select_cal,on_cal,where_cal,limit_cal,condition_cal,name_nal,cal VARCHAR(800);
+  DECLARE select_cal,on_cal,where_cal,limit_cal,condition_cal,name_cal,dimension_cal VARCHAR(255);
+  DECLARE cal TEXT;
+
+  SET dimension_cal='';
+  IF dimension!=''
+  THEN
+  SET @dimension = dimension,
+  dimension_cal = CONCAT(' AND psrcd.dimension IN (', @dimension, ')');
+  END IF;
+  
   SET select_cal = 'SELECT pe.enterprise_id FROM pcore_searchable_resource_catalog_data AS psrcd INNER JOIN (pcore_enterprise AS pe) ON ( ', 
   on_cal = 'unified_social_credit_code <> "" AND pe.unified_social_credit_code = psrcd.identify) ',
-  where_cal = CONCAT('WHERE psrcd.type = ', type, ' AND psrcd.dimension =', dimension, ' GROUP BY psrcd.identify ORDER BY pe.update_time DESC '),
+  where_cal = CONCAT('WHERE psrcd.type = ', type, dimension_cal, ' GROUP BY psrcd.identify ORDER BY pe.update_time DESC '),
   limit_cal = CONCAT('LIMIT ', offset, ', ',size),
-  name_nal = name,
+  name_cal = name,
   condition_cal ='',
   cal = '';
 
   IF name!=''
   THEN
-  SET name_nal = CONCAT('"%',name,'%"'),
-  condition_cal = CONCAT('pe.name LIKE ', name_nal, ' AND ');
+  SET name_cal = CONCAT('"%',name,'%"'),
+  condition_cal = CONCAT('pe.name LIKE ', name_cal, ' AND ');
   END IF;
   SET cal = CONCAT(select_cal, condition_cal, on_cal, where_cal, limit_cal);
-  /* 问题: stmt怎么确定?
-  SET @sql=cal;  
-  PREPARE stmt FROM @sql;    -- 预处理动态sql语句
-  EXECUTE stmt;              -- 执行sql语句
-  DEALLOCATE PREPARE stmt ;  -- 释放prepare */
+   
+  SET @sql=cal;  
+  PREPARE stmt FROM @sql;    -- 预处理动态sql语句
+  EXECUTE stmt;              -- 执行sql语句
+  DEALLOCATE PREPARE stmt ;  -- 释放prepare 
 END//
 DELIMITER ;
 
-
-CALL enterprise_by_resource_catalog('',44,1,0,10)
-
 -- --------------------------------------------------------
 
---比较蠢的方式, 不用动态执行, 暂时用这个处理
-DROP PROCEDURE IF EXISTS enterprise_by_resource_catalog;
+--
+-- 根据信用类型(资源目录)搜索企业总数
+--
+
+DROP PROCEDURE IF EXISTS enterprise_by_resource_catalog_total;
 
 DELIMITER //
-CREATE PROCEDURE enterprise_by_resource_catalog(in name varchar(255), in type int, in dimension int, in offset int, in size int)  
+CREATE PROCEDURE enterprise_by_resource_catalog_total(in name varchar(255), in type int, in dimension varchar(255)) 
 BEGIN
-IF name=0
-THEN
-SELECT pe.enterprise_id
-  FROM `pcore_searchable_resource_catalog_data` AS psrcd 
-  INNER JOIN (`pcore_enterprise` AS pe) 
-  ON (unified_social_credit_code <> '' AND pe.unified_social_credit_code = psrcd.identify) 
-  WHERE psrcd.type = type 
-  AND psrcd.dimension = dimension
-  GROUP BY psrcd.identify 
-ORDER BY pe.update_time DESC 
-LIMIT offset, size;
-ELSE
-SELECT pe.enterprise_id
-  FROM `pcore_searchable_resource_catalog_data` AS psrcd 
-  INNER JOIN (`pcore_enterprise` AS pe) 
-  ON (pe.name LIKE CONCAT('%',name,'%') AND unified_social_credit_code <> '' AND pe.unified_social_credit_code = psrcd.identify) 
-  WHERE psrcd.type = type 
-  AND psrcd.dimension = dimension
-  GROUP BY psrcd.identify 
-ORDER BY pe.update_time DESC 
-LIMIT offset, size;
-END IF;
+  DECLARE select_cal,on_cal,where_cal,condition_cal,name_cal,dimension_cal VARCHAR(255);
+  DECLARE cal TEXT;
+  
+  SET dimension_cal='';
+  IF dimension!=''
+  THEN
+  SET @dimension = dimension,
+  dimension_cal = CONCAT(' AND psrcd.dimension IN (', @dimension, ')');
+  END IF;
+  
+  SET select_cal = 'SELECT pe.enterprise_id FROM pcore_searchable_resource_catalog_data AS psrcd INNER JOIN (pcore_enterprise AS pe) ON ( ', 
+  on_cal = 'unified_social_credit_code <> "" AND pe.unified_social_credit_code = psrcd.identify) ',
+  where_cal = CONCAT('WHERE psrcd.type = ', type, dimension_cal, ' GROUP BY psrcd.identify'),
+  name_cal = name,
+  condition_cal ='',
+  cal = '';
+
+  IF name!=''
+  THEN
+  SET name_cal = CONCAT('"%',name,'%"'),
+  condition_cal = CONCAT('pe.name LIKE ', name_cal, ' AND ');
+  END IF;
+  SET cal = CONCAT(select_cal, condition_cal, on_cal, where_cal);
+   
+  SET @sql=cal;  
+  PREPARE stmt FROM @sql;    -- 预处理动态sql语句
+  EXECUTE stmt;              -- 执行sql语句
+  DEALLOCATE PREPARE stmt ;  -- 释放prepare 
 END//
 DELIMITER ;
 
@@ -84,6 +105,21 @@ BEGIN
   SELECT SUM(approve_total*100/total) INTO approve_rate;
   SELECT SUM(reject_total*100/total) INTO reject_rate;
   SELECT total, approve_total, reject_total, approve_rate, reject_rate;
+END//
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- 统计 联合奖惩案例ids
+--
+
+DROP PROCEDURE IF EXISTS statics_case_award_penalty;
+
+DELIMITER //
+CREATE PROCEDURE statics_case_award_penalty(in ug1 int, in ug2 int, in ug3 int, in ug4 int) 
+BEGIN
+SELECT MAX(case_award_penalty_id) AS case_award_penalty_id FROM pcore_case_award_penalty WHERE award_penalty_type = ug1 AND status = ug2 GROUP BY identify, item_award_penalty ORDER BY case_award_penalty_id DESC limit ug3, ug4;
 END//
 DELIMITER ;
 
