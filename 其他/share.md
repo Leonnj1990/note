@@ -1,6 +1,6 @@
 #分享
 
-###Linux 获取命令
+### Linux 获取命令
 * argc 是外部命令参数的个数
 * argv 存放各参数的内容
 
@@ -33,7 +33,7 @@
 		
 		}*/
 
-###shell的颜色 控制shell格式
+### shell的颜色 控制shell格式
 * \033[0;1;4;5;7;8;32;43mok\033[0m  
 	* \033 声明了转义序列的开始，
 	* [ 开始定义颜色。 
@@ -50,14 +50,14 @@
 	* \033[0m 关闭转义序列
 	* \33[0m 关闭所有属性 
 
-###exit(status)
+### exit(status)
 * status 是整数
 	* exit(0)正常退出 
 	* exit(1)非正常退出
 	* PHP 的版本号大于等于 4.2.0，那么在 status 是整数的情况下，不会输出该参数。
 * status 是字符串，则该函数会在退出前输出字符串
 
-###printf(format,arg1,arg2,arg++)
+### printf(format,arg1,arg2,arg++)
 * format 必需。规定字符串以及如何格式化其中的变量。
 
 		可能的格式值：
@@ -91,7 +91,7 @@
 		arg2 	必需。规定插到 format 字符串中第二个 % 符号处的参数。
 		arg++ 	可选。规定插到 format 字符串中第三、四等等 % 符号处的参数。
 
-###file\_put_contents(file,data,mode,context)
+### file\_put_contents(file,data,mode,context)
 * file 	必需。规定要写入数据的文件。如果文件不存在，则创建一个新文件。
 * data 	可选。规定要写入文件的数据。可以是字符串、数组或数据流。
 

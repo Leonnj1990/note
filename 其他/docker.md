@@ -27,9 +27,3 @@
 	  volumes:
 	   - ./:/var/www/html/
 	  container_name: front-apitest-phpfpm
-
-
-
-
-
-

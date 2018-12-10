@@ -1,12 +1,14 @@
 # git
 
-### git clone "项目地址"
+---
+
+## git clone "项目地址"
 
 * git status 
 * git branch dev 创建dev分支
 * git checkout dev  切换dev分支
 
-### cd 项目  启动项目
+## cd 项目  启动项目
 
 * ./smart start  
 * ./smart composer 
@@ -16,12 +18,12 @@
 * 设置权限 chmod  o+w Compile 
 * 创建数据库（对照database文件）
 
-### 每次查看最新代码  启动项目  
+## 每次查看最新代码  启动项目  
 
 * git pull 拉取代码到本地  
 * 执行
 
-#### 部署到服务器
+## 部署到服务器
 
 * git checkout master
 * git merge dev
@@ -29,7 +31,7 @@
 * git reset --hard 版本  回滚
 * git push -f 强制提交
 
-### 后端服务层
+## 后端服务层
 
 * docker-compose up -d  安装+启动
 * docker-compose ps  查看编排工具容器状态
@@ -78,8 +80,7 @@
 * curl -H "Accept-Encoding: gzip,deflate" -w %{size_download} 地址
 	* -H 头部
 
-
-### guzzle 并行、串行请求
+## guzzle 并行、串行请求
 
 * 并行
 

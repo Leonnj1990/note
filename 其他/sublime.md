@@ -1,5 +1,7 @@
 # linux 下安装 sublimetext2 
 
+---
+
 ## 下载
 	Sublime Text 2 的下载地址是 <a href="http://www.sublimetext.com/2">http://www.sublimetext.com/2</a>，
 	如果你的 Linux 系统是64位的，那么别忘了下载64位的程序包，速度和性能都大不一样的。

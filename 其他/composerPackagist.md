@@ -1,12 +1,14 @@
 # 创建一个自己的 Composer/Packagist 包
 
-#### 在github上创建一个项目，这里取名 composer-car，又欢快的将它克隆到本地：
+---
+
+### 在github上创建一个项目，这里取名 composer-car，又欢快的将它克隆到本地：
 
 	git clone https://github.com/GeHou/composer-car.git
   
     cd composer-car
 
-#### 编写composer.json，你可以根据composer文档生成并编辑它，当然composer贴心的为我们准备了命令行，look：
+### 编写composer.json，你可以根据composer文档生成并编辑它，当然composer贴心的为我们准备了命令行，look：
 
 	-> composer init
   
@@ -45,7 +47,7 @@
 	Do you confirm generation [yes]? yes
 	Would you like the vendor directory added to your .gitignore [yes]? yes
 
-#### 虽然经过以上的一番挣扎生成了composer.json文件，不过我们还得往里面加点东西。使用你熟悉的编辑器打开composer.json文件修改至如下：
+### 虽然经过以上的一番挣扎生成了composer.json文件，不过我们还得往里面加点东西。使用你熟悉的编辑器打开composer.json文件修改至如下：
 
 		{
 		    "name": "hou/composer-car",
@@ -71,7 +73,7 @@
 		    }   
 		}
 
-#### 根据上面的命名空间和目录的映射关系，包的结构现在应该是下面这个样子：
+### 根据上面的命名空间和目录的映射关系，包的结构现在应该是下面这个样子：
 
 	composer-car
 	- src
@@ -88,13 +90,13 @@
 	- composer.json
 	- README.md
 
-#### 在https://packagist.org/上递交自己的包
+### 在https://packagist.org/上递交自己的包
 
 	pacagist开放递交，你可以任意递交自己的包，当然，要符合一定规则。
 	
 	packagist右上角有一个submit package的按钮，点击会跳转到递交页面
 
-#### 设置github的hook
+### 设置github的hook
 
 	**你可能需要在github上面发布几个release，这样packagist才会认定你的包是稳定的，否则只能required开发包**
 

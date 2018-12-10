@@ -1,4 +1,8 @@
-一、已有数据库，自动生成 E-R 图：
+# mysqlworkbench
+
+---
+
+## 一、已有数据库，自动生成 E-R 图：
 
 ①、首先在你的MySQL workbench里选中Database——> reverse engineering
 
@@ -8,9 +12,7 @@
 
 ④、接下来，见证奇迹的时刻，自动生成的 E-R 图大概长相如图：
 
-
-
-二、先画 E-R 图，然后自动生成数据库：
+## 二、先画 E-R 图，然后自动生成数据库：
 
 http://jingyan.baidu.com/article/8065f87fe856242331249888.html
 
