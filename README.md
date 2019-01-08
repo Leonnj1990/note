@@ -1,4 +1,4 @@
-# 我的读书笔记
+# 读书笔记
 
 ---
 
@@ -8,6 +8,8 @@
 * Head First PHP&MySQL
 * Modern PHP
 * 图解HTTP
+* 用户故事与敏捷方法
+* 用户故事地图
 
 ## 在读书单
 
@@ -15,3 +17,4 @@
 * Head First 设计模式
 * HTTP权威指南
 * 图解TCP/IP
+* 代码整洁之道
