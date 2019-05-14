@@ -12,23 +12,23 @@
 * 配置文件保存为**纯文本**
 * 能**简写**绝不全写
 
-## 接口
+## shell, 应用程序接口(Application Program Interface)
 
-### GUI接口
+### GUI接口(Graphie User Interface)
 
 图形用户界面.
 
 * Gnome: C
 * KDE: C++
 
-### CLI接口
+### CLI接口(Command Line Interface)
 
 命令行界面. 命令提示符
 
 * sh: Docker很多镜像默认是sh(待了解)
 * **bash**(常用)
 * csh
-* zsh
+* zsh(Mac): SHELL=/bin/zsh
 * ksh
 * tcsh
 
@@ -43,7 +43,7 @@
 	
 ### 选项
 
-* 短选项: **-**, 多个短选项可组合, 如 `ls -a -l = ls -al`
+* 短选项: **-**, 多个短选项可组合, 如 `ls -a -l` 等于 `ls -al`
 * 长选项: **--**, 多个长选项不能组合
 
 ### 参数
