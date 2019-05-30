@@ -6,11 +6,11 @@
 
 ### 2018年
 
-* ![PMP](./images/project-management-professional-pmp.png) 
+* PMP
 
 ### 2019年
 
-* ![ACP](./images/pmi-agile-certified-practitioner-pmi-acp.png) 
+* ACP Done
 
 ## 视频
 
@@ -138,3 +138,8 @@
 * 代码未来
 * 松本行弘的程序世界
 * 代码之髓
+
+## 认证
+
+![PMP](./images/project-management-professional-pmp.png) 
+![ACP](./images/pmi-agile-certified-practitioner-pmi-acp.png) 
