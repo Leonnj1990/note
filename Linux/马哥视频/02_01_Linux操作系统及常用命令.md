@@ -4,7 +4,7 @@
 
 ## 库(library)
 
-应用程序依赖
+=应用程序依赖
 
 * Windows
 	* .dll(Dynamic Link Library): 动态链接库
@@ -40,21 +40,23 @@
 
 ### ls
 
-	root@aa748cd25683:/var/www/html# ls -l
-	drwxr-xr-x 19 root     root        608 Apr 15 18:19 Application
-	-rw-r--r--  1 root     root       4510 Mar 26 18:39 updateIdSXBZXJGX
-	
-	root@aa748cd25683:/var/www/html# ls -lh
-	-rw-r--r--  1 root     root     4.5K Mar 26 18:39 updateIdSXBZXJGXX
+```
+root@aa748cd25683:/var/www/html# ls -l
+drwxr-xr-x 19 root     root        608 Apr 15 18:19 Application
+-rw-r--r--  1 root     root       4510 Mar 26 18:39 updateIdSXBZXJGX
 
-	root@aa748cd25683:/var/www/html# ls -a
-	.
-	..
-	.git
+root@aa748cd25683:/var/www/html# ls -lh
+-rw-r--r--  1 root     root     4.5K Mar 26 18:39 updateIdSXBZXJGXX
 
-	root@aa748cd25683:/var/www/html# ls -i
-	1416786 Application
-	3372450 updateIdSXBZXJGXX
+root@aa748cd25683:/var/www/html# ls -a
+.
+..
+.git
+
+root@aa748cd25683:/var/www/html# ls -i
+1416786 Application
+3372450 updateIdSXBZXJGXX
+```
 
 * 选项
 	* -l: 长格式
@@ -181,13 +183,15 @@
 * 变量: 命名的内存空间
 * 变量赋值: **=**, 如`NAME=Jerry`
 
-	root@aa748cd25683:/var/www/html# printenv
-	TERM=xterm
-	PWD=/var/www/html
-	PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+```
+root@aa748cd25683:/var/www/html# printenv
+TERM=xterm
+PWD=/var/www/html
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-	root@aa748cd25683:/var/www/html# echo $PATH
-	/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+root@aa748cd25683:/var/www/html# echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+```
 	
 PATH: 使用**冒号`:`**分隔的路径
 
