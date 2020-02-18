@@ -96,6 +96,8 @@
 		* [4.创建、查看和编辑文本文件.md](./Linux/rhce/rh124/4.创建、查看和编辑文本文件.md)
 		* [5.管理本地Linux用户和组.md](./Linux/rhce/rh124/5.管理本地Linux用户和组.md)
 		* [6.利用Linux文件系统权限控制文件访问.md](./Linux/rhce/rh124/6.利用Linux文件系统权限控制文件访问.md)
+		* [7.监控和管理Linux进行.md](./Linux/rhce/rh124/7.监控和管理Linux进行.md)
+		* [8.控制服务和守护进程.md](./Linux/rhce/rh124/8.控制服务和守护进程.md)
 
 ### 未读书单
 
